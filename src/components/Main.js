@@ -4,13 +4,12 @@ import {
   faMagnifyingGlass,
   faDroplet,
   faCloudRain,
-  faLocation,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Main = () => {
   return (
     <>
-      <h1 className="text-center p-2 mb-2.5 bg-flamingo text-tuna dark:bg-tuna dark:text-flamingo">
+      <h1 className="text-center p-2 mb-2.5 bg-flamingo-100 text-white">
         Weathly 1.0
       </h1>
 
