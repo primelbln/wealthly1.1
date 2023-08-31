@@ -4,8 +4,17 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      tuna: "#3f3f41",
-      flamingo: "#d56d48",
+      tuna: {
+        100: "#3f3f41",
+        200: "#323234",
+        300: "#252527",
+      },
+      flamingo: {
+        100: "#d56d48",
+        200: "#d97b5a",
+        300: "#dd8a6c",
+      },
+      white: "#fff",
     },
   },
   plugins: [],
