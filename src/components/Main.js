@@ -1,3 +1,5 @@
+// API KEY: 50ed82754d4463602922bfb138532577
+
 // Import FA Icons and more
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -26,7 +28,7 @@ const Main = () => {
           </button>
           <img src="https://picsum.photos/200" alt="cloudy with sun" />
           <p>33°C</p>
-          <p>Wolkig</p>
+          <p></p>
           <span>
             <FontAwesomeIcon icon={faDroplet} />
           </span>{" "}
