@@ -16,7 +16,7 @@ function Main() {
   const [id, setId] = useState("");
   const [error, setError] = useState("");
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=50ed82754d4463602922bfb138532577&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=API_HERE&units=metric`;
   // CENSOR API BEFORE ADDING/PUSHING
 
  
