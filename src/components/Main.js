@@ -15,7 +15,8 @@ function Main() {
   const [location, setLocation] = useState(``);
 
 
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=50ed82754d4463602922bfb138532577&units=metric`;
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=(INSERT_API)&units=metric`;
+// CENSOR API BEFORE ADDING/PUSHING
 
 const searchLocation = (event) => {
   if (event.key === `Enter`) {
@@ -30,7 +31,7 @@ const searchLocation = (event) => {
 
   return (
     <>
-      <h1 className="text-center p-2 mb-2.5 bg-flamingo-100 text-white">
+      <h1 className="text-center p-2 mb-2.5 bg-flamingo-100 text-white sticky top-0">
         Weathly 1.0
       </h1>
 
@@ -50,8 +51,9 @@ const searchLocation = (event) => {
           </button>
           <p>{data.name}</p>
           {/* <img src="https://picsum.photos/200" alt="cloudy with sun" /> */}
+          <img src="https://openweathermap.org/img/wn/10d@2x.png"/>
         
-          {data.weather ? <p> {data.weather.icon}.png</p> : null}
+          {data.weather ? <p> {data.weather.icon}</p> : null}
           
           <>
           {data.main ? <p>{data.main.temp}°C</p> : null}
