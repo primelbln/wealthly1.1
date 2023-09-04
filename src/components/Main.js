@@ -10,23 +10,33 @@ import axios from "axios";
 
 function Main() {
   const [data, setData] = useState({});
-  const [location, setLocation] = useState(``);
+  const [location, setLocation] = useState("");
 
 
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=(ENTER_API)&units=metric
-&units=metric`;
-// CENSOR API BEFORE ADDING/PUSHING
+  const [id, setId] = useState("");
+  const [error, setError] = useState("");
 
-const searchLocation = (event) => {
-  if (event.key === `Enter`) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=50ed82754d4463602922bfb138532577&units=metric`;
+  // CENSOR API BEFORE ADDING/PUSHING
 
-    axios.get(url).then((response) => {
-      setData(response.data)
-      console.log(response.data);
-    })
-  }
-}
+ 
 
+  const searchLocation = (event) => {
+    if (event.key === `Enter`) {
+      axios.get(url).then((response) => {
+        setData(response.data);
+        console.log(response.data);
+        console.log(response.data.weather[0].icon);
+        setId(response.data.weather[0].icon);
+        console.log(id);
+      }).catch(error => {
+        console.log(error.message);
+        
+      })
+    }
+  };
+
+ 
 
   return (
     <>
@@ -38,8 +48,8 @@ const searchLocation = (event) => {
         <div className="rounded-md shadow-md w-1/2 text-center">
           <input
             value={location}
-            onChange={event => setLocation(event.target.value)}
-            onKeyPress = {searchLocation}
+            onChange={(event) => setLocation(event.target.value)}
+            onKeyPress={searchLocation}
             className="m-1.5 bg-gray-300 p-1.5 rounded-md shadow-md"
             type="text"
             placeholder="enter location..."
@@ -50,34 +60,29 @@ const searchLocation = (event) => {
           </button>
           <p>{data.name}</p>
           {/* <img src="https://picsum.photos/200" alt="cloudy with sun" /> */}
-          <div  className="flex justify-center">
-
-          <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon"/>
+          <div className="flex justify-center">
+            <img
+              src={`https://openweathermap.org/img/wn/${id}.png`}
+              alt="weather icon"
+            />
           </div>
-        
           {data.weather ? <p> {data.weather.icon}</p> : null}
-          
-          <>
-          {data.main ? <p>{data.main.temp}°C</p> : null}
-          </>
-        
-          <span>
-            {/* <FontAwesomeIcon icon={faCloudRain} /> */}
-            Humidity:
-          </span>{" "}
-          {data.main ? <p>{data.main.humidity}%</p> : null}
+          <>{data.main ? <p>{data.main.temp.toFixed(1)}°C</p> : null}</>
           <span>
             {/* <FontAwesomeIcon icon={faDroplet} /> */}
             Feels like:
             {/* <p>{data.main.humidity}</p> */}
           </span>{" "}
-          {data.main ? <p>{data.main.feels_like}°C</p> : null}
-          
-
+          {data.main ? <p>{data.main.feels_like.toFixed(1)}°C</p> : null}
+          <span>
+            {/* <FontAwesomeIcon icon={faCloudRain} /> */}
+            Humidity:
+          </span>{" "}
+          {data.main ? <p>{data.main.humidity}%</p> : null}
         </div>
       </div>
     </>
   );
-};
+}
 
 export default Main;
