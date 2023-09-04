@@ -15,7 +15,7 @@ function Main() {
   const [location, setLocation] = useState(``);
 
 
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=50ed82754d4463602922bfb138532577`;
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=50ed82754d4463602922bfb138532577&units=metric`;
 
 const searchLocation = (event) => {
   if (event.key === `Enter`) {
@@ -49,17 +49,27 @@ const searchLocation = (event) => {
             <FontAwesomeIcon className="" icon={faMagnifyingGlass} />
           </button>
           <p>{data.name}</p>
-          <img src="https://picsum.photos/200" alt="cloudy with sun" />
-          <p>{data.main.temp}°C</p>
-          <p></p>
+          {/* <img src="https://picsum.photos/200" alt="cloudy with sun" /> */}
+        
+          {data.weather ? <p> {data.weather.icon}.png</p> : null}
+          
+          <>
+          {data.main ? <p>{data.main.temp}°C</p> : null}
+          </>
+        
           <span>
-            <FontAwesomeIcon icon={faDroplet} />
+            {/* <FontAwesomeIcon icon={faCloudRain} /> */}
+            Humidity:
           </span>{" "}
-          20%
+          {data.main ? <p>{data.main.humidity}%</p> : null}
           <span>
-            <FontAwesomeIcon icon={faCloudRain} />
+            {/* <FontAwesomeIcon icon={faDroplet} /> */}
+            Feels like:
+            {/* <p>{data.main.humidity}</p> */}
           </span>{" "}
-          20%
+          {data.main ? <p>{data.main.feels_like}°C</p> : null}
+          
+
         </div>
       </div>
     </>
