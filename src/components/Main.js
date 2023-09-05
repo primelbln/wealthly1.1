@@ -52,7 +52,7 @@ function Main() {
 
   return (
     <div className="bg-slate-100 dark:bg-slate-950">
-      <img
+      {/* <img
         className="mx-auto p-4"
         src={mainLogo}
         alt="Wealthly 1.0 Logo"
@@ -60,7 +60,7 @@ function Main() {
       />
       <h1 className="text-center text-black border-1 dark:text-white">
         Weathly 1.0
-      </h1>
+      </h1> */}
 
       <div className="grid justify-items-center h-screen">
         <div className="rounded-2xl border-2 drop-shadow-2xl w-4/6 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white">
