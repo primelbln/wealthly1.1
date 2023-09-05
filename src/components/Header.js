@@ -3,7 +3,7 @@ import mainLogo from "../assets/logo.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 const Header = () => {
   return (
-    <nav className="flex bg-slate-900 text-white justify-between items-center p-4 sticky top-0 ">
+    <nav className="flex bg-slate-900 text-white justify-between items-center p-4 sticky top-0 z-10">
       <img
         className="h-10 w-10 self-center mr-2 "
         src={mainLogo}

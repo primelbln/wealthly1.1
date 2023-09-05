@@ -61,8 +61,8 @@ function Main() {
       <h1 className="text-center text-black border-1 dark:text-white">
         Weathly 1.0
       </h1> */}
-
-      <div className="grid justify-items-center h-screen">
+      {/* <div className="grid justify-items-center h-screen"> */}
+      <div className="grid justify-items-center pt-[10rem]">
         <div className="rounded-2xl border-2 drop-shadow-2xl w-4/6 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white">
           <form className="py-1" onSubmit={searchLocation}>
             <input
@@ -126,7 +126,7 @@ function Main() {
             </div>
           )}
         </div>
-        <div className="text-center p-3 text-black dark:text-white">
+        <div className="flex justify-center items-center w-full p-4 mt-2.5 text-black dark:text-white dark:bg-slate-900 bg-slate-200 ">
           Made by L & F with{" "}
           <FontAwesomeIcon style={{ color: "#c6cfdc" }} icon={faHeart} />
         </div>
