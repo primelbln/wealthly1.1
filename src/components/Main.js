@@ -48,6 +48,7 @@ function Main() {
       });
   };
 
+
   return (
     <>
       <h1 className="text-center p-2 mb-2.5 bg-flamingo-100 text-white sticky top-0">
@@ -55,46 +56,40 @@ function Main() {
       </h1>
 
       <div className="flex justify-center">
-        <div className="rounded-md shadow-md w-1/2 text-center ">
-          <form onSubmit={searchLocation}>
-            <input
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              className="m-1.5 bg-gray-300 p-1.5 rounded-md shadow-md"
-              type="text"
-              placeholder="Enter location..."
-              id="location-input"
+        <div className="rounded-md shadow-md w-1/2 text-center">
+          <input
+            value={location}
+            onChange={(event) => setLocation(event.target.value)}
+            onKeyPress={searchLocation}
+            className="m-1.5 bg-gray-300 p-1.5 rounded-md shadow-md"
+            type="text"
+            placeholder="enter location..."
+            id="location-input"
+          />
+          <button>
+            <FontAwesomeIcon className="" icon={faMagnifyingGlass} />
+          </button>
+          <p>{data.name}</p>
+          {/* <img src="https://picsum.photos/200" alt="cloudy with sun" /> */}
+          <div className="flex justify-center">
+            <img
+              src={`https://openweathermap.org/img/wn/${id}.png`}
+              alt="weather icon"
             />
-            <button type="submit">
-              <FontAwesomeIcon className="" icon={faMagnifyingGlass} />
-            </button>
-          </form>
-          {error && <div>{error}</div>}
-          {!error && data && (
-            <div>
-              <p>{data.name}</p>
-              {/* <img src="https://picsum.photos/200" alt="cloudy with sun" /> */}
-              <div className="flex justify-center">
-                <img
-                  src={`https://openweathermap.org/img/wn/${id}@2x.png`}
-                  alt="weather icon"
-                />
-              </div>
-              <p> {data.weather.icon}</p>
-              <p>{data.main.temp.toFixed(1)}°C</p>
-              <span>
-                {/* <FontAwesomeIcon icon={faDroplet} /> */}
-                Feels like:
-                {/* <p>{data.main.humidity}</p> */}
-              </span>{" "}
-              <p>{data.main.feels_like.toFixed(1)}°C</p>
-              <span>
-                {/* <FontAwesomeIcon icon={faCloudRain} /> */}
-                Humidity:
-              </span>{" "}
-              <p>{data.main.humidity}%</p>
-            </div>
-          )}
+          </div>
+          {data.weather ? <p> {data.weather.icon}</p> : null}
+          <>{data.main ? <p>{data.main.temp.toFixed(1)}°C</p> : null}</>
+          <span>
+            {/* <FontAwesomeIcon icon={faDroplet} /> */}
+            Feels like:
+            {/* <p>{data.main.humidity}</p> */}
+          </span>{" "}
+          {data.main ? <p>{data.main.feels_like.toFixed(1)}°C</p> : null}
+          <span>
+            {/* <FontAwesomeIcon icon={faCloudRain} /> */}
+            Humidity:
+          </span>{" "}
+          {data.main ? <p>{data.main.humidity}%</p> : null}
         </div>
       </div>
     </>
