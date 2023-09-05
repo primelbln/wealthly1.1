@@ -9,36 +9,45 @@ import { useState } from "react";
 import axios from "axios";
 
 function Main() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
   const [location, setLocation] = useState("");
-
-
-
   const [id, setId] = useState("");
   const [error, setError] = useState("");
 
-
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=API_HERE&units=metric`;
-  // CENSOR API BEFORE ADDING/PUSHING
-
- 
-
   const searchLocation = (event) => {
-    if (event.key === `Enter`) {
-      axios.get(url).then((response) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=50ed82754d4463602922bfb138532577&units=metric`;
+    event.preventDefault();
+    axios
+      .get(url)
+      .then((response) => {
+        if (response.statusText !== "OK") return;
+        console.log("Success");
+        console.log(response);
         setData(response.data);
-        console.log(response.data);
-        console.log(response.data.weather[0].icon);
         setId(response.data.weather[0].icon);
-        console.log(id);
-      }).catch(error => {
-        console.log(error.message);
-        
+        setError("");
       })
-    }
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          const message = error.response.data.message;
+          const capitalizedMessage =
+            message[0].toUpperCase() + message.slice(1);
+          setError(`${capitalizedMessage}! Please Enter a valid location.`);
+        } else if (error.request) {
+          console.log(error.request);
+          setError("Bad request!");
+        } else {
+          console.log(error);
+          setError(`Error: ${error.message}`);
+        }
+      })
+      .finally(() => {
+        console.log("submitted");
+        setLocation("");
+      });
   };
 
- 
 
   return (
     <>
