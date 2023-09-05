@@ -64,12 +64,12 @@ function Main() {
 
       <div className="grid justify-items-center h-screen ">
         <div className="rounded-2xl border-2 drop-shadow-2xl w-1/2 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white">
-          <form className="m-4" onSubmit={searchLocation}>
+          <form className="py-1" onSubmit={searchLocation}>
             <input
               ref={inputRef}
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="m-1.5 bg-slate-200 dark:bg-slate-600 dark:text-white p-1.5 rounded-md shadow-md"
+              className="mt-4 mb-4 bg-slate-200 dark:bg-slate-600 dark:text-white p-1.5 rounded-md shadow-md "
               type="text"
               placeholder="Enter location..."
               id="location-input"
