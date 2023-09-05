@@ -62,8 +62,8 @@ function Main() {
         Weathly 1.0
       </h1>
 
-      <div className="grid justify-items-center h-screen ">
-        <div className="rounded-2xl border-2 drop-shadow-2xl w-1/2 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white">
+      <div className="grid justify-items-center h-screen">
+        <div className="rounded-2xl border-2 drop-shadow-2xl w-4/6 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white">
           <form className="py-1" onSubmit={searchLocation}>
             <input
               ref={inputRef}
@@ -80,7 +80,7 @@ function Main() {
           </form>
           {/* Error Message (Bad Request, Invalid Input, ...) */}
           {error && (
-            <div className="mb-3 bg-red-700 text-white px-4 py-3 shadow-md">
+            <div className="mb-3 bg-red-600 text-white px-4 py-3 shadow-md">
               {/* <img
                 className="mx-auto m-3"
                 src={errorLogo}
