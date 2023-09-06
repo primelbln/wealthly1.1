@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import mainLogo from "../assets/logo.png";
+// import mainLogo from "../assets/logo.png";
 
 function Main() {
   const [data, setData] = useState(null);
@@ -51,7 +51,7 @@ function Main() {
   }, []);
 
   return (
-    <div className="bg-slate-100 dark:bg-slate-950">
+    <div className="bg-slate-100 dark:bg-slate-950 flex flex-col  min-h-screen">
       {/* <img
         className="mx-auto p-4"
         src={mainLogo}
@@ -62,8 +62,8 @@ function Main() {
         Weathly 1.0
       </h1> */}
       {/* <div className="grid justify-items-center h-screen"> */}
-      <div className="grid justify-items-center pt-[10rem]">
-        <div className="rounded-2xl border-2 drop-shadow-2xl w-4/6 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white">
+      <div className="flex flex-grow  pt-[10rem] ">
+        <div className="rounded-2xl border-2 drop-shadow-2xl sm:w-2/6 md:w-3/6 lg:w-4/6 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white">
           <form className="py-1" onSubmit={searchLocation}>
             <input
               ref={inputRef}
@@ -96,6 +96,7 @@ function Main() {
               <p className="text-2xl">{data.name}</p>
               <div className="flex justify-center">
                 <img
+                  className=""
                   src={`https://openweathermap.org/img/wn/${id}@2x.png`}
                   alt="weather icon"
                 />
@@ -103,12 +104,20 @@ function Main() {
               <p> {data.weather.icon}</p>
               <h3 className="text-sm m-1.5">{data.weather[0].description}</h3>
               <p className="text-4xl">{data.main.temp.toFixed(1)}°C</p>
-              <div className="grid m-5 gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+              <div className="grid m-5 gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 <div className="bg-slate-200 dark:bg-slate-700 rounded-xl p-4 text-l">
                   <span>Feels like</span>{" "}
                   <p className="text-3xl">
                     {data.main.feels_like.toFixed(1)}°C
                   </p>
+                </div>
+                <div className="bg-slate-200 dark:bg-slate-700 rounded-xl p-4 text-l">
+                  <span>Temp min.</span>{" "}
+                  <p className="text-3xl">{data.main.temp_min.toFixed(1)}°C</p>
+                </div>
+                <div className="bg-slate-200 dark:bg-slate-700 rounded-xl p-4 text-l">
+                  <span>Temp max.</span>{" "}
+                  <p className="text-3xl">{data.main.temp_max.toFixed(1)}°C</p>
                 </div>
                 <div className="bg-slate-200 dark:bg-slate-700 rounded-xl p-4 text-l">
                   <span>Humidity</span>{" "}
@@ -126,10 +135,10 @@ function Main() {
             </div>
           )}
         </div>
-        <div className="flex justify-center items-center w-full p-4 mt-2.5 text-black dark:text-white dark:bg-slate-900 bg-slate-200 ">
-          Made by L & F with{" "}
-          <FontAwesomeIcon style={{ color: "#c6cfdc" }} icon={faHeart} />
-        </div>
+      </div>
+      <div className=" w-full p-4 mt-2.5 text-black dark:text-white dark:bg-slate-900 bg-slate-200 ">
+        Made by L & F with{" "}
+        <FontAwesomeIcon style={{ color: "#c6cfdc" }} icon={faHeart} />
       </div>
     </div>
   );
