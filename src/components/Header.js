@@ -7,12 +7,18 @@ const Header = () => {
       <img
         className="h-10 w-10 self-center mr-2 "
         src={mainLogo}
-        alt="Wealthly Logo"
+        alt="Weathly Logo"
       />
-      <span className="text-2xl font-bold">Wealthly</span>
+      <span className="text-2xl font-bold ">Weathly</span>
       <ul>
         <li>
-          <FontAwesomeIcon icon={faGithub} size="2xl" />
+          <a
+            href="https://github.com/primelbln/wealthly1.1/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon icon={faGithub} size="2xl" />
+          </a>
         </li>
       </ul>
     </nav>
