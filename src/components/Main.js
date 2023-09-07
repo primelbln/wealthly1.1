@@ -102,7 +102,7 @@ function Main() {
               <p className="text-4xl">{data.main.temp.toFixed(1)}°C</p>
               <div className="grid m-5 gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {/* additional weather data */}
-                <div className="bg-slate-200 dark:bg-slate-700 rounded-xl p-4 text-l hover:shadow-lg">
+                <div className="bg-slate-200 dark:bg-slate-700 rounded-xl p-4 text-l">
                   <span>Feels like</span>{" "}
                   <p className="text-3xl">
                     {data.main.feels_like.toFixed(1)}°C
@@ -134,7 +134,7 @@ function Main() {
         </div>
       </div>
       {/* the footer :) */}
-      <div className=" w-full font-bold text-center p-4 mt-auto text-black dark:text-white dark:bg-slate-900 bg-slate-200 ">
+      <div className="w-full font-thin text-center p-4 mt-auto text-black dark:text-white dark:bg-slate-900 bg-slate-200 ">
         Made by Leonard Kehl & Felix Werner{" "}
         <FontAwesomeIcon icon={faCopyright} />
       </div>
