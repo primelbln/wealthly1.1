@@ -54,9 +54,11 @@ function Main() {
   }, []);
 
   return (
-    <div className=" flex flex-col my-screen">
+    <div className="flex flex-col my-screen">
       {" "}
-      {/* body div */}
+      {/* body div
+      flex flex-col my-screen
+       */}
       <div className="flex flex-grow bg-slate-100 dark:bg-slate-950  pt-[5rem] pb-[2.5rem] ">
         {" "}
         {/* widget div */}
@@ -87,18 +89,20 @@ function Main() {
               {/* weather icon */}
               <p className="text-2xl">{data.name}</p>
               <div className="flex justify-center">
-                <img
-                  className=""
-                  src={`https://openweathermap.org/img/wn/${id}@2x.png`}
-                  alt="weather icon"
-                />
+                <div className="">
+                  <img
+                    className=""
+                    src={`https://openweathermap.org/img/wn/${id}@2x.png`}
+                    alt="weather icon"
+                  />
+                </div>
               </div>
               <p> {data.weather.icon}</p>
-              <h3 className="text-sm m-1.5">{data.weather[0].description}</h3>
+              <p className="text-sm m-1.5">{data.weather[0].description}</p>
               <p className="text-4xl">{data.main.temp.toFixed(1)}°C</p>
               <div className="grid m-5 gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {/* additional weather data */}
-                <div className="bg-slate-200 dark:bg-slate-700 rounded-xl p-4 text-l">
+                <div className="bg-slate-200 dark:bg-slate-700 rounded-xl p-4 text-l hover:shadow-lg">
                   <span>Feels like</span>{" "}
                   <p className="text-3xl">
                     {data.main.feels_like.toFixed(1)}°C
