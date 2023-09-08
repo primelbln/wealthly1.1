@@ -62,7 +62,7 @@ function Main() {
       <div className="flex flex-grow bg-slate-100 dark:bg-slate-950  pt-[5rem] pb-[2.5rem] ">
         {" "}
         {/* widget div */}
-        <div className="rounded-2xl border-2 drop-shadow-2xl sm:w-2/6 md:w-3/6 lg:w-4/6 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white">
+        <div className="rounded-2xl drop-shadow-2xl sm:w-2/6 md:w-3/6 lg:w-4/6 text-center m-auto bg-slate-300 dark:border-slate-400 dark:bg-slate-900 dark:text-white dark:border-2">
           {" "}
           {/* widget styling div */}
           <form className="py-1" onSubmit={searchLocation}>
@@ -72,7 +72,7 @@ function Main() {
               ref={inputRef}
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="mt-4 mb-4 bg-slate-200 dark:bg-slate-600 dark:text-white p-1.5 rounded-md shadow-md "
+              className="mt-4 mb-4 bg-slate-200 dark:bg-slate-600 dark:text-white p-1.5 rounded-md shadow-md"
               type="text"
               placeholder="Enter location..."
               id="location-input"
